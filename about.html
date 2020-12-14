@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>About!</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<!-- Nav Bar -->
+<ul class="topnav">
+  <li><a id="about" class="active" href="#">About</a></li>
+  <li><a id="feedback" href="#">Feedback</a></li>
+  <li><a id="contact" href="#" >Contact</a></li>
+  <li class="right" id="logout"><a href="#">LogOut</a></li>
+</ul>
+
+<h1>About</h1>
+
+
+
+<!-- <script type="text/javascript" src="script.js"></script> -->
+<script >
+var contact = document.getElementById("contact");
+var about = document.getElementById("about");
+var feedback = document.getElementById("feedback");
+var logout = document.getElementById("logout");
+
+if(localStorage.getItem("loggedin") === "true"){
+	about.href = "about.html";
+	feedback.href="feedback.html";
+	contact.href = "contact.html";
+}
+else{
+	about.href = "";
+	feedback.href="";
+	contact.href = "";
+	document.getElementById("body").style.display="none";
+}
+
+logout.addEventListener("click" , function(){
+	// console.log("logging out...")
+	localStorage.removeItem("loggedin");	
+	about.href = "#";
+	feedback.href="#";
+	contact.href = "#";
+	// console.log("logged out " , localStorage.getItem("loggedin"));
+	window.location.href = "index.html";
+
+});
+</script>
+</body>
+</html>
